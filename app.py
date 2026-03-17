@@ -8,11 +8,13 @@ import joblib
 import requests
 from datetime import datetime, timedelta
 import plotly.graph_objects as go
+import os
+
 
 # ========================= CONFIG =========================
 MODEL_PATH = "model/model.json"
 SCALER_PATH = "model/scaler.joblib"
-NASA_KEY    = "e68Qg5b2AdX0pdhNb6wKVnWI6HGjJ5UWRk7AwWxq"     # replace with your DONKI key for higher limits
+NASA_KEY = os.getenv("NASA_KEY") 
 HORIZON_H   = 3              # <-- fixed at +3h (matches your trained model)
 
 st.set_page_config(page_title=f"Space Weather — Dst (+{HORIZON_H}h)",
